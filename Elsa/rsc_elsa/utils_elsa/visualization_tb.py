@@ -334,3 +334,217 @@ def russia_new_cases_outliers(data_russia):
     plt.show()
 
 #russia_new_cases_outliers(mining_data_tb.russia_new_cases(open_dataset())) 
+
+
+
+#### GRAFICAS OPCION B:
+
+def Country_argentina(argentina):
+
+    argentina = argentina.loc["2020-03-26":,:]
+    argentina.total_deaths.plot(kind='bar',figsize=(20,10), rot=-45, color="#D5F5E3")
+
+    plt.xlabel("Date", size=14, color="#0E6655")
+    plt.ylabel("Person", size=14, color="#0E6655")
+    plt.xticks(rotation=90,FontSize=6,color="#5A5034")
+    plt.yticks(rotation=0,FontSize=12,color="#5A5034")
+    plt.title("TOTAL DEATHS ARGENTINA" ,size=14, color="#0E6655")
+    plt.plot ([0,90], [70,588],lw = 2,color='m',linestyle="--")
+    plt.plot ([90,174], [588,7563],lw = 2,color='m',linestyle="--")
+
+    #plt.savefig('evolucion_muertes_diarias_argentina.png')
+    plt.show()
+
+#Country_argentina(mining_data_tb.Country(open_dataset())[0])
+
+
+def Country_colombia(colombia):
+    colombia = colombia.loc["2020-03-31":,:]
+    colombia.total_deaths.plot(kind='bar',figsize=(20,10), rot=-45, color="#DC7633")
+
+    plt.xlabel("Date", size=14, color="#0E6655")
+    plt.ylabel("Numero de muertes", size=14, color="#0E6655")
+    plt.xticks(rotation=90,FontSize=6,color="#5A5034")
+    plt.yticks(rotation=0,FontSize=12,color="#5A5034")
+    plt.title("TOTAL DEATHS COLOMBIA",size=14, color="#0E6655")
+    plt.plot ([0,50], [50,613],lw = 2,color='m',linestyle="--")
+    plt.plot ([50,149], [613,17889],lw = 2,color='m',linestyle="--")
+
+    #plt.savefig('evolucion_muertes_diarias_colombia.png')
+    plt.show()
+
+#country_colombia(mining_data_tb.Country(open_dataset())[3])
+
+
+def Country_spain(spain):
+    spain = spain.loc["2020-03-11":,:]
+    spain.total_deaths.plot(kind='bar',figsize=(20,10), rot=-45, color="#85C1E9")
+
+    plt.xlabel("Date", size=14, color="#0E6655")
+    plt.ylabel("Numero de muertes", size=14, color="#0E6655")
+    plt.xticks(rotation=90,FontSize=6,color="#5A5034")
+    plt.yticks(rotation=0,FontSize=12,color="#5A5034")
+    plt.title("TOTAL DEATHS SPAIN",size=14, color="#0E6655")
+    plt.plot ([0 ,72], [72,28752],lw = 2,color='m',linestyle="--")
+    plt.plot ([72 ,75], [28752,28752],lw = 2,color='y',linestyle="--")
+    plt.plot ([75 ,76], [28752,27136],lw = 2,color='g',linestyle="--")
+    plt.plot ([76 ,100], [27136,27136],lw = 2,color='y',linestyle="--")
+    plt.plot ([100 ,101], [27136,28315],lw = 2,color='m',linestyle="--")
+    plt.plot ([101 ,170], [28315, 28924],lw = 2,color='m',linestyle="--")
+
+    #plt.savefig('evolucion_muertes_diarias_spain.png')
+    plt.show()
+
+#Country_spain(mining_data_tb.Country(open_dataset())[2])
+
+
+
+def Country_russia(russia):
+    russia = russia.loc["2020-04-02":,:]
+    russia.total_deaths.plot(kind='bar',figsize=(20,10), rot=-45, color="#5D6D7E")
+
+    plt.xlabel("Date", size=14, color="#0E6655")
+    plt.ylabel("Numero de muertes", size=14, color="#0E6655")
+    plt.xticks(rotation=90,FontSize=6,color="#5A5034")
+    plt.yticks(rotation=0,FontSize=12,color="#5A5034")
+    plt.title("TOTAL DEATHS RUSSIA",size=14, color="#0E6655")
+    plt.plot ([0 ,147], [147,16568],lw = 2,color='m',linestyle="--")
+
+    #plt.savefig('evolucion_muertes_diarias_rusia.png')
+    plt.show()
+
+#Country_russia(mining_data_tb.Country(open_dataset())[4])
+
+
+def chi(chile):
+    chile = chile.loc["2020-04-07":,:]
+    chile.total_deaths.plot(kind='bar',figsize=(20,10), rot=-45, color="#C39BD3")
+
+    plt.xlabel("Date", size=14, color="#0E6655")
+    plt.ylabel("Numero de muertes", size=14, color="#0E6655")
+    plt.xticks(rotation=90,FontSize=6,color="#5A5034")
+    plt.yticks(rotation=0,FontSize=12,color="#5A5034")
+    plt.title("TOTAL DEATHS CHILE",size=14, color="#0E6655")
+    plt.plot ([0 ,142], [142,10958],lw = 2,color='m',linestyle="--")
+
+    #plt.savefig('evolucion_muertes_diarias_chile.png')
+    plt.show()
+
+#Country_chile(mining_data_tb.Country(open_dataset())[2])
+
+
+def Grafico_linea_total_deaths(countries_total_deaths):
+    countries_total_deaths.plot(kind="line",figsize=(10, 8),color=["#D5F5E3","#C39BD3","#DC7633","#5D6D7E","#85C1E9"])
+
+    plt.legend(loc='top_right')
+    plt.title('TOTAL DEATHS', size=20, color="#138D75")
+    plt.xlabel('Date', size=14, color="#138D75")
+    plt.ylabel('Person',size=14, color="#138D75")
+    plt.xticks(rotation=45)
+
+    #plt.savefig('line_total_deaths_5_countries.png')
+    plt.show()
+
+#Grafico_linea_total_deaths(mining_data_tb.Countries_total(open_dataset()))
+
+def Grafico_linea_new_cases(countries_new_cases):
+    countries_new_cases.plot(kind="line",figsize=(10, 8),color=["#D5F5E3","#C39BD3","#DC7633","#5D6D7E","#85C1E9"])
+
+    plt.legend(loc='top_right')
+    plt.title('NEW CASES', size=20, color="#138D75")
+    plt.xlabel('Date', size=14, color="#138D75")
+    plt.ylabel('Person',size=14, color="#138D75")
+    plt.xticks(rotation=45)
+
+    #plt.savefig('line_new_cases_5_countries.png')
+    plt.show()
+
+#Grafico_linea_new_cases(mining_data_tb.Countries_new(open_dataset()))
+
+def Grafico_bar_total_deaths(countries_total_deaths):
+
+    total_deaths=countries_total_deaths.sum() 
+    total_deaths.plot(kind="bar",figsize=(10, 8),color=["#D5F5E3","#C39BD3","#DC7633","#5D6D7E","#85C1E9"])
+
+    plt.title('TOTAL DEATHS', size=20, color="#138D75")
+    plt.xlabel('Date', size=14, color="#138D75")
+    plt.ylabel('Person',size=14, color="#138D75")
+    plt.xticks(rotation=0,FontSize=12)
+    plt.yticks(rotation=0,FontSize=12)
+
+    #plt.savefig('bar_total_deaths_5_countries.png')
+    plt.show()
+
+#Grafico_bar_total_deaths(mining_data_tb.Countries_total(open_dataset()))
+
+def Grafico_bar_new_cases(countries_new_cases):
+    new_cases = countries_new_cases.sum() 
+    new_cases.plot(kind="bar",figsize=(10, 8),color=["#D5F5E3","#C39BD3","#DC7633","#5D6D7E","#85C1E9"])
+
+    plt.title('NEW CASES', size=20, color="#138D75")
+    plt.xlabel('Date', size=14, color="#138D75")
+    plt.ylabel('Person',size=14, color="#138D75")
+    plt.xticks(rotation=0,FontSize=12)
+    plt.yticks(rotation=0,FontSize=12)
+
+    #plt.savefig('bar_new_cases_5_countries.png')
+    plt.show()
+
+#Grafico_bar_new_cases(mining_data_tb.Countries_new(open_dataset()))
+
+def Grafico_pie_total_deaths(countries_total_deaths):
+    total_deaths=countries_total_deaths.sum() 
+    total_deaths.plot(kind="pie",figsize=(10, 8),colors=["#D5F5E3","#C39BD3","#DC7633","#5D6D7E","#85C1E9"])
+
+    plt.legend(loc='top_left')
+    plt.title('TOTAL DEATHS', size=20, color="#138D75")
+    plt.xlabel('Date', size=14, color="#138D75")
+    plt.ylabel('Person',size=14, color="#138D75")
+    plt.xticks(rotation=0,FontSize=12)
+    plt.yticks(rotation=0,FontSize=12)
+
+    #plt.savefig('pie_total_deaths_5_countries.png')
+    plt.show()
+
+#Grafico_pie_total_deaths(mining_data_tb.Countries_total(open_dataset())) 
+
+
+def Grafico_pie_new_cases(countries_new_cases):
+    new_cases = countries_new_cases.sum() 
+    new_cases.plot(kind="pie",figsize=(10, 8),colors=["#D5F5E3","#C39BD3","#DC7633","#5D6D7E","#85C1E9"])
+
+    plt.legend(loc='top_left')
+    plt.title('NEW CASES', size=20, color="#138D75")
+    plt.xlabel('Date', size=14, color="#138D75")
+    plt.ylabel('Person',size=14, color="#138D75")
+    plt.xticks(rotation=0,FontSize=12)
+    plt.yticks(rotation=0,FontSize=12)
+
+    #plt.savefig('pie_new_cases_5_countries.png')
+    plt.show()
+
+#Grafico_pie_new_cases(mining_data_tb.Countries_new(open_dataset()))
+
+
+def Grafico_scatter_total_deaths(countries_total_deaths):
+    plt.scatter(countries_total_deaths.Argentina, countries_total_deaths.Spain, countries_total_deaths.Chile, countries_total_deaths.Russia)
+    plt.title("TOTAL DEATHS", size=20, color="#138D75")
+    plt.xlabel('Date', size=14, color="#138D75")
+    plt.ylabel('Person',size=14, color="#138D75")
+
+    #plt.savefig('scatter_total_deaths_5_countries.png')
+    plt.show()
+
+#Grafico_scatter_total_deaths(mining_data_tb.Countries_total(open_dataset()))
+
+
+def Grafico_scatter_new_cases(countries_new_cases):
+    plt.scatter(countries_new_cases.Argentina, countries_new_cases.Spain, countries_new_cases.Chile, countries_new_cases.Russia)
+    plt.title("NEW CASES", size=20, color="#138D75")
+    plt.xlabel('Date', size=14, color="#138D75")
+    plt.ylabel('Person',size=14, color="#138D75")
+
+    #plt.savefig('scatter_new_cases_5_countries.png')
+    plt.show()
+
+#Grafico_scatter_new_cases(mining_data_tb.Countries_new(open_dataset()))

@@ -165,3 +165,54 @@ def colombia_new_cases(data):
     data_colombia.set_index("date", inplace=True)
   
     return data_colombia
+
+#### OPCION B:
+
+
+def Country(data):
+    country = data.loc[:,["location","date", "total_deaths", "new_cases"]].dropna()
+    country.set_index("location",inplace=True)
+
+    argentina = country.loc[["Argentina"],:]
+    spain = country.loc[["Spain"],:]
+    chile = country.loc[["Chile"],:]
+    russia = country.loc[["Russia"],:]
+    colombia =country.loc[["Colombia"],:]
+
+    argentina.set_index("date", inplace=True)
+    spain.set_index("date", inplace=True)
+    chile.set_index("date", inplace=True)
+    russia.set_index("date", inplace=True)
+    colombia.set_index("date", inplace=True)
+
+    return argentina, spain, chile, colombia, russia
+
+
+def Countries_new(data):
+    country = data.loc[:,["location","date", "total_deaths", "new_cases"]].dropna()
+    country.set_index("location",inplace=True)
+    countries = country.loc[["Argentina", "Spain", "Chile", "Russia", "Colombia"],:]
+    countries.reset_index("location", inplace=True)
+
+    countries_new_cases = countries.pivot_table('new_cases', index='date',columns='location')
+    countries_new_cases = countries_new_cases.fillna(0)
+    countries_new_cases = countries_new_cases.loc[~(countries_new_cases==0).all(axis=1)]
+
+    #countries_new_cases.set_index("date", inplace=True)
+   
+    return countries_new_cases
+
+
+def Countries_total(data):
+    country = data.loc[:,["location","date", "total_deaths", "new_cases"]].dropna()
+    country.set_index("location",inplace=True)
+    countries = country.loc[["Argentina", "Spain", "Chile", "Russia", "Colombia"],:]
+    countries.reset_index("location", inplace=True)
+
+    countries_total_deaths = countries.pivot_table('total_deaths', index='date',columns='location')
+    countries_total_deaths = countries_total_deaths.fillna(0)
+    countries_total_deaths = countries_total_deaths.loc[~(countries_total_deaths==0).all(axis=1)]
+
+    #countries_total_deaths.set_index("date", inplace=True)
+
+    return countries_total_deaths
