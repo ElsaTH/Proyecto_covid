@@ -138,7 +138,7 @@ def Chile_total(chile_covid):
 
 
 
-def argentina_new_cases (data_argentina):                                                               
+def argentina_new_cases(data_argentina):                                                               
     """
     Representación de la gráfica de los nuevos casos en Argentina
     """
@@ -349,8 +349,8 @@ def Country_argentina(argentina):
     plt.xticks(rotation=90,FontSize=6,color="#5A5034")
     plt.yticks(rotation=0,FontSize=12,color="#5A5034")
     plt.title("TOTAL DEATHS ARGENTINA" ,size=14, color="#0E6655")
-    plt.plot ([0,90], [70,588],lw = 2,color='m',linestyle="--")
-    plt.plot ([90,174], [588,7563],lw = 2,color='m',linestyle="--")
+    plt.plot ([0,70], [70,588],lw = 2,color='m',linestyle="--")
+    plt.plot ([70,174], [588,8500],lw = 2,color='m',linestyle="--")
 
     #plt.savefig('evolucion_muertes_diarias_argentina.png')
     plt.show()
@@ -373,24 +373,23 @@ def Country_colombia(colombia):
     #plt.savefig('evolucion_muertes_diarias_colombia.png')
     plt.show()
 
-#country_colombia(mining_data_tb.Country(open_dataset())[3])
+#Country_colombia(mining_data_tb.Country(open_dataset())[3])
 
 
 def Country_spain(spain):
-    spain = spain.loc["2020-03-11":,:]
+    spain = spain.loc["2020-03-31":,:]
     spain.total_deaths.plot(kind='bar',figsize=(20,10), rot=-45, color="#85C1E9")
-
     plt.xlabel("Date", size=14, color="#0E6655")
     plt.ylabel("Numero de muertes", size=14, color="#0E6655")
     plt.xticks(rotation=90,FontSize=6,color="#5A5034")
     plt.yticks(rotation=0,FontSize=12,color="#5A5034")
     plt.title("TOTAL DEATHS SPAIN",size=14, color="#0E6655")
-    plt.plot ([0 ,72], [72,28752],lw = 2,color='m',linestyle="--")
-    plt.plot ([72 ,75], [28752,28752],lw = 2,color='y',linestyle="--")
-    plt.plot ([75 ,76], [28752,27136],lw = 2,color='g',linestyle="--")
-    plt.plot ([76 ,100], [27136,27136],lw = 2,color='y',linestyle="--")
-    plt.plot ([100 ,101], [27136,28315],lw = 2,color='m',linestyle="--")
-    plt.plot ([101 ,170], [28315, 28924],lw = 2,color='m',linestyle="--")
+  
+    plt.plot ([0 ,25], [0,200],lw = 2,color='y',linestyle="--")
+    plt.plot ([25 ,68], [200,1470],lw = 2,color='g',linestyle="--")
+    plt.plot ([68 ,109], [1470,7400],lw = 2,color='y',linestyle="--")
+    plt.plot ([109 ,109], [7400,8300],lw = 2,color='m',linestyle="--")
+    plt.plot ([109 ,153], [8300, 11100],lw = 2,color='m',linestyle="--")
 
     #plt.savefig('evolucion_muertes_diarias_spain.png')
     plt.show()
@@ -416,7 +415,7 @@ def Country_russia(russia):
 #Country_russia(mining_data_tb.Country(open_dataset())[4])
 
 
-def chi(chile):
+def Country_chile(chile):
     chile = chile.loc["2020-04-07":,:]
     chile.total_deaths.plot(kind='bar',figsize=(20,10), rot=-45, color="#C39BD3")
 
